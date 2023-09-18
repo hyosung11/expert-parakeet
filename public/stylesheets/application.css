@@ -1,0 +1,10 @@
+body {
+  background-color: aliceblue;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
