@@ -22,7 +22,7 @@ HTML and CSS - Pug for HTML
 
 Static Assets
 
-Logging 
+Logging
 
 View variables and helpers
 
@@ -33,3 +33,14 @@ validation
 express-validator
 flash messages
 
+## Views
+
+1. main page
+2. user login page
+   1. see the conferences
+3. registration page
+4. admin page - to add / edit
+
+## User Stories / Functionality / Features
+
+user's can save their settings
