@@ -2,10 +2,17 @@ const express = require("express");
 const app = express();
 
 const { Client } = require("pg");
-console.log(Client);
-const client = new Client();
-console.log(client);
+const client = new Client({
+  database: 'conferences'
+});
 
+async function pgPersistence() {
+  await client.connect();
+  const data = await client.query('SELECT * FROM conferences');
+  await client.end();
+
+  return data;
+}
 
 app.set("views", "./views");
 app.set("view engine", "pug");
