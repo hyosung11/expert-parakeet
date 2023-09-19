@@ -3,17 +3,19 @@
 -- website, description ?, city, country
 -- id, name (12th ECS 2020), title (ECS), start_date end_date, category, city, country, organization
 
-CREATE TABLE conferences (
-  id SERIAL PRIMARY KEY,
-  name TEXT UNIQUE NOT NULL,
-  title TEXT NOT NULL,
-  start_date DATE, -- "YYYY-MM-DD"
-  end_date DATE,
-  specialty TEXT UNIQUE NOT NULL,
-  city VARCHAR(100) NOT NULL,
-  country VARCHAR(50) NOT NULL,
-  organization VARCHAR (200) NOT NULL,
-)
+-- CREATE TABLE conferences (
+--   id SERIAL PRIMARY KEY,
+--   name TEXT UNIQUE NOT NULL,
+--   title TEXT NOT NULL,
+--   start_date DATE,
+--   end_date DATE,
+--   specialty TEXT UNIQUE NOT NULL,
+--   city VARCHAR(100) NOT NULL,
+--   country VARCHAR(50) NOT NULL,
+--   organization VARCHAR (200) NOT NULL,
+-- );
+
+
 
 -- admin table
 -- name
@@ -22,3 +24,15 @@ CREATE TABLE conferences (
 -- users table
 -- name
 -- password
+
+CREATE TABLE conferences (
+  id SERIAL PRIMARY KEY,
+  name TEXT UNIQUE NOT NULL,
+  title TEXT NOT NULL,
+  start_date DATE,
+  end_date DATE,
+  specialty TEXT,
+  city VARCHAR(100) NOT NULL,
+  country VARCHAR(50) NOT NULL, 
+  organization VARCHAR(200) NOT NULL
+);
