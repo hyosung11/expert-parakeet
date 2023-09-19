@@ -6,7 +6,7 @@ const client = new Client({
   database: 'conferences'
 });
 
-async function pgPersistence() {
+async function PgPersistence() {
   await client.connect();
   const data = await client.query('SELECT * FROM conferences');
   await client.end();
