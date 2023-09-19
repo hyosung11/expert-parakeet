@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
 
-const pg = require("pg");
+const { Client } = require("pg");
+console.log(Client);
+const client = Client();
+
 
 app.set("views", "./views");
 app.set("view engine", "pug");
