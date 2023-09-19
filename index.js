@@ -3,7 +3,8 @@ const app = express();
 
 const { Client } = require("pg");
 console.log(Client);
-const client = Client();
+const client = new Client();
+console.log(client);
 
 
 app.set("views", "./views");
