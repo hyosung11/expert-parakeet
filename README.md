@@ -44,3 +44,8 @@ flash messages
 ## User Stories / Functionality / Features
 
 user's can save their settings
+
+Admin privileges
+
+User features
+
