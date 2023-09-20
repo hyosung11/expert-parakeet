@@ -49,3 +49,8 @@ Admin privileges
 
 User features
 
+## Resources
+
+node-postgres modules guide
+
+https://node-postgres.com/
