@@ -10,9 +10,6 @@ app.use(morgan("common"));
 app.use(express.static("public"));
 
 const { Client } = require("pg");
-const client = new Client({
-  database: 'medical_conferences'
-});
 
 // const logQuery = (statement) => {
 //   let timeStamp = new Date();
@@ -42,6 +39,9 @@ const client = new Client({
 // });
 
 async function getConferences() {
+  let client = new Client({
+    database: 'medical_conferences'
+  });
   await client.connect();
   const res = await client.query("SELECT * FROM conferences");
   // logQuery(statement);
@@ -53,7 +53,6 @@ async function getConferences() {
 app.get("/", async (req, res) => {
   try {
     const conferences = await getConferences();
-
     res.render("layout", { conferences });
     
   } catch (error) {
