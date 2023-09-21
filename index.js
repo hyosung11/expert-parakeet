@@ -54,7 +54,7 @@ app.get("/", async (req, res) => {
   try {
     const conferences = await getConferences();
     res.render("layout", { conferences });
-    
+
   } catch (error) {
     console.log(error); // render error page
   }
