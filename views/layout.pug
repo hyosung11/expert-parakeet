@@ -13,5 +13,9 @@ html(lang="en-US")
       p blah blah blah
       ul
         each conference in conferences
-          li= conference.name
+          li= conference.name + ' | ' + conference.start_date
       img(src="images/earth.jpg" alt="The Earth" title="The Earth")
+
+
+  //-     each conference in conferences
+  //- li= conference.name + ' / ' + conference.start_date.toISOString().slice(0,10)

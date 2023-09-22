@@ -40,12 +40,12 @@ const { Client } = require("pg");
 
 async function getConferences() {
   let client = new Client({
-    database: 'medical_conferences'
+    database: "medical_conferences",
   });
   await client.connect();
-  const res = await client.query("SELECT * FROM conferences");
+  const res = await client.query("SELECT name, TO_CHAR(start_date, 'YYYY-MM-DD') start_date FROM conferences");
   // logQuery(statement);
-  // console.log(res);
+  console.log(res);
   await client.end();
   return res.rows;
 }
@@ -54,7 +54,6 @@ app.get("/", async (req, res) => {
   try {
     const conferences = await getConferences();
     res.render("layout", { conferences });
-
   } catch (error) {
     console.log(error); // render error page
   }
@@ -63,5 +62,3 @@ app.get("/", async (req, res) => {
 app.listen(3000, "localhost", () => {
   console.log("Listening to port 3000.");
 });
-
-
