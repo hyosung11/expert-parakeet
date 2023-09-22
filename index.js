@@ -45,7 +45,7 @@ async function getConferences() {
   await client.connect();
   const res = await client.query("SELECT * FROM conferences");
   // logQuery(statement);
-  console.log(res);
+  // console.log(res);
   await client.end();
   return res.rows;
 }
