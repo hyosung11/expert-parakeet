@@ -52,10 +52,29 @@ async function getConferences() {
   return res.rows;
 }
 
+function getSpecialties(conferences) {
+  // array of objects iteration
+  // Iterating over an array made of objects. One the property of these objects is "specialty"
+  // Return an array of strings, array of unique specialties
+
+  let result = [];
+  for (let index = 0; index < conferences.length; index += 1) {
+
+    let specialty = conferences[index].specialty;
+    if (!(result.includes(specialty))) {
+      result.push(specialty);
+    }
+  }
+
+  return result;
+}
+
 app.get("/", async (req, res) => {
   try {
     const conferences = await getConferences();
-    
+    const specialties = getSpecialties(conferences);
+    console.log(specialties);
+
     res.render("layout", { conferences });
   } catch (error) {
     console.log(error); // render error page
