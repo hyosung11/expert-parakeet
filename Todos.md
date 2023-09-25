@@ -3,7 +3,7 @@
 ## Features
 
 1. group conferences based on specialty
-   Multichoice box: cardiology / Pediatry / ....
+   Multichoice box: cardiology / Pediatric / ....
     => Get all the unique values from the "specialty" field
       Work on the list we got from the get request (so far, we get "name" and "start_date") (select distinct values in an object = push in an array of values)  $
       Do another request ("SELECT DISTINCT(specialty) FROM conference")  $$
@@ -11,7 +11,7 @@
      either launches a query or it filters the existing query and just displays the category
 
    Make a select button in pug with the options of the button using the unique specialties list
-   
+
 2. create admin user
    1. login
    2. password
@@ -46,7 +46,7 @@
   }
 ```
 
-### PEDAC 
+### PEDAC
 
 Problem
 
