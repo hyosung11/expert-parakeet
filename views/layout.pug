@@ -10,10 +10,14 @@ html(lang="en-US")
     header
       h1 Welcome to the International Medical Conferences Directory
     main
-      p blah blah blah
+      label(for="specialty") Choose a specialty
+      select(name="specialty")
+        each specialty in specialties
+          option= specialty
+      
       ul
         each conference in conferences
-          li= conference.name + ' | ' + conference.start_date
+          li= conference.name + ' | ' + conference.start_date + ' | ' + conference.specialty
       img(src="images/earth.jpg" alt="The Earth" title="The Earth")
 
 

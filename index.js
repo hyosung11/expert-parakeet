@@ -53,15 +53,11 @@ async function getConferences() {
 }
 
 function getSpecialties(conferences) {
-  // array of objects iteration
-  // Iterating over an array made of objects. One the property of these objects is "specialty"
-  // Return an array of strings, array of unique specialties
-
   let result = [];
   for (let index = 0; index < conferences.length; index += 1) {
 
     let specialty = conferences[index].specialty;
-    if (!(result.includes(specialty))) {
+    if (!result.includes(specialty)) {
       result.push(specialty);
     }
   }
@@ -75,7 +71,7 @@ app.get("/", async (req, res) => {
     const specialties = getSpecialties(conferences);
     console.log(specialties);
 
-    res.render("layout", { conferences });
+    res.render("layout", { conferences, specialties });
   } catch (error) {
     console.log(error); // render error page
   }

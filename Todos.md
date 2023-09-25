@@ -9,6 +9,9 @@
       Do another request ("SELECT DISTINCT(specialty) FROM conference")  $$
    Choose one category
      either launches a query or it filters the existing query and just displays the category
+
+   Make a select button in pug with the options of the button using the unique specialties list
+   
 2. create admin user
    1. login
    2. password
