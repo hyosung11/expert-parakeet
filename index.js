@@ -12,7 +12,7 @@ app.use(express.static("public"));
 const { Client } = require("pg");
 
 // const logQuery = (statement) => {
-//   let timeStamp = new Date();
+//  let timeStamp = new Date();
 //   let formattedTimeStamp = timeStamp.toString().substring(4, 24);
 //   console.log(formattedTimeStamp, statement);
 // };
@@ -42,17 +42,20 @@ async function getConferences() {
   let client = new Client({
     database: "medical_conferences",
   });
+
   await client.connect();
-  const res = await client.query("SELECT name, TO_CHAR(start_date, 'YYYY-MM-DD') start_date FROM conferences");
+  const res = await client.query("SELECT name, TO_CHAR(start_date, 'YYYY-MM-DD') start_date, specialty FROM conferences");
   // logQuery(statement);
-  console.log(res);
+  console.log(res.rows);
   await client.end();
+
   return res.rows;
 }
 
 app.get("/", async (req, res) => {
   try {
     const conferences = await getConferences();
+    
     res.render("layout", { conferences });
   } catch (error) {
     console.log(error); // render error page
