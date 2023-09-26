@@ -10,7 +10,8 @@
    Choose one category
      either launches a query or it filters the existing query and just displays the category
 
-   Make a select button in pug with the options of the button using the unique specialties list
+   - [x] Make a select button in pug with the options of the button using the unique specialties list
+   - [ ] Render capitalized specialties on the welcome page
 
 2. create admin user
    1. login
