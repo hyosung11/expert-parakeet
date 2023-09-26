@@ -57,17 +57,12 @@ async function getConferences() {
 function getSpecialties(conferences) {
   let result = [];
   for (let index = 0; index < conferences.length; index += 1) {
-    let specialty = conferences[index].specialty;
-    let capWords = specialty
+    let capSpecialty = conferences[index].specialty
         .split(" ")
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ");
 
-    if (!result.includes(specialty)) {
-      
-
-      result.push(capWords);
-    }
+    if (!result.includes(capSpecialty)) result.push(capSpecialty);
 
     result.sort();
   }
