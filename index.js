@@ -44,7 +44,9 @@ async function getConferences() {
   });
 
   await client.connect();
-  const res = await client.query("SELECT name, TO_CHAR(start_date, 'YYYY-MM-DD') start_date, specialty FROM conferences");
+  const res = await client.query(
+    "SELECT name, TO_CHAR(start_date, 'YYYY-MM-DD') start_date, specialty FROM conferences"
+  );
   // logQuery(statement);
   console.log(res.rows);
   await client.end();
@@ -55,11 +57,19 @@ async function getConferences() {
 function getSpecialties(conferences) {
   let result = [];
   for (let index = 0; index < conferences.length; index += 1) {
-
     let specialty = conferences[index].specialty;
+    let capWords = specialty
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+
     if (!result.includes(specialty)) {
-      result.push(specialty);
+      
+
+      result.push(capWords);
     }
+
+    result.sort();
   }
 
   return result;

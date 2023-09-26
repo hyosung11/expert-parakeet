@@ -17,3 +17,11 @@ VALUES
 ('XXIX European Congress of Perinatal Medicine - ECPM 2024', 'ECPM', '2024-09-11', '2024-09-13', 'Perinatal Medicine', 'Vienna', 'Austria', 'MCA Scientific Events'),
 ('ESC Congress 2023', 'ESC', '2023-08-25', '2023-08-28', 'Cardiology', 'Amsterdam', 'Netherlands', 'European Society of Cardiology'),
 ('ESC Congress 2022', 'ESC', '2023-08-26', '2023-08-29', 'Cardiology', 'Barcelona', 'Spain', 'European Society of Cardiology');
+
+
+-- Edge Case Data
+INSERT INTO conferences (name, title, start_date, end_date, specialty, city, country, organization)
+VALUES
+('48TH ECTS CONGRESS - ECTS 2022', 'ECTS', '2022-05-07', '2022-05-10', 'cardiology', 'Helsinki', 'Finland', 'European Calcified Tissue Society (ECTS)'),
+('47TH ECTS CONGRESS - ECTS 2022', 'ECTS', '2022-05-07', '2022-05-10', 'infectious diseases', 'Helsinki', 'Finland', 'European Calcified Tissue Society (ECTS)'),
+('46TH ECTS CONGRESS - ECTS 2022', 'ECTS', '2022-05-07', '2022-05-10', 'pulmonology', 'Helsinki', 'Finland', 'European Calcified Tissue Society (ECTS)');
