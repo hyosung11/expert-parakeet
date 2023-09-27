@@ -11,7 +11,8 @@
      either launches a query or it filters the existing query and just displays the category
 
    - [x] Make a select button in pug with the options of the button using the unique specialties list
-   - [ ] Render capitalized specialties on the welcome page
+   - [x] Render capitalized specialties on the welcome page
+   - [ ] Create default value for drop down menu.
 
 2. create admin user
    1. login

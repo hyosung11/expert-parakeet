@@ -76,12 +76,15 @@ async function getConferences() {
 
 function getSpecialties(conferences) {
   let result = [];
+
   for (let index = 0; index < conferences.length; index += 1) {
     let specialty = conferences[index]["specialty"];
     if (!result.includes(specialty)) result.push(specialty);
   }
 
-  return result.sort();
+  result.sort();
+  result.unshift("...")
+  return result;
 }
 
 app.get("/", async (req, res) => {
