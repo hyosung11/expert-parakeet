@@ -12,9 +12,9 @@ html(lang="en-US")
     main
       label(for="specialty") Choose a specialty: 
       select(name="specialty")
-        each specialty in specialties
+        each specialty in uniqueSpecialties
           option= specialty
-      
+
       ul
         each conference in conferences
           li= conference.name + ' | ' + conference.start_date + ' | ' + conference.specialty

@@ -38,6 +38,23 @@ const { Client } = require("pg");
 //   database: "medical_conferences",
 // });
 
+function capitalizeSpecialty(conferences) {
+  let result = [];
+
+  for (let index = 0; index < conferences.length; index += 1) {
+    let conference = conferences[index];
+    // console.log(conference);
+    conference.specialty = conference.specialty
+      .split(" ")
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
+    result.push(conference);
+  }
+
+  return result;
+}
+
 async function getConferences() {
   let client = new Client({
     database: "medical_conferences",
@@ -48,35 +65,32 @@ async function getConferences() {
     "SELECT name, TO_CHAR(start_date, 'YYYY-MM-DD') start_date, specialty FROM conferences"
   );
   // logQuery(statement);
-  console.log(res.rows);
   await client.end();
 
-  return res.rows;
+  // check and sanitize specialty capitalization
+  let capitalizedConf = capitalizeSpecialty(res.rows);
+  console.log(capitalizedConf);
+  return capitalizedConf;
+  // return res.rows;
 }
 
 function getSpecialties(conferences) {
   let result = [];
   for (let index = 0; index < conferences.length; index += 1) {
-    let capSpecialty = conferences[index].specialty
-        .split(" ")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
-
-    if (!result.includes(capSpecialty)) result.push(capSpecialty);
-
-    result.sort();
+    let specialty = conferences[index]["specialty"];
+    if (!result.includes(specialty)) result.push(specialty);
   }
 
-  return result;
+  return result.sort();
 }
 
 app.get("/", async (req, res) => {
   try {
     const conferences = await getConferences();
-    const specialties = getSpecialties(conferences);
-    console.log(specialties);
+    const uniqueSpecialties = getSpecialties(conferences);
+    console.log(uniqueSpecialties);
 
-    res.render("layout", { conferences, specialties });
+    res.render("layout", { conferences, uniqueSpecialties });
   } catch (error) {
     console.log(error); // render error page
   }
@@ -85,3 +99,4 @@ app.get("/", async (req, res) => {
 app.listen(3000, "localhost", () => {
   console.log("Listening to port 3000.");
 });
+
