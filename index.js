@@ -87,7 +87,12 @@ function getSpecialties(conferences) {
   return result;
 }
 
-app.get("/", async (req, res) => {
+// Redirect start page
+app.get("/", (req, res) => {
+  res.redirect("/conferences")
+});
+
+app.get("/conferences", async (req, res) => {
   try {
     const conferences = await getConferences();
     const uniqueSpecialties = getSpecialties(conferences);
