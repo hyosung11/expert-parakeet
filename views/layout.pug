@@ -11,7 +11,7 @@ html(lang="en-US")
       h1 Welcome to the International Medical Conferences Directory
     main
       label(for="specialty") Choose a specialty: 
-      select(name="specialty")
+      select(name="specialty" id="specialtyButton")
         each specialty in uniqueSpecialties
           option= specialty
 
@@ -20,6 +20,13 @@ html(lang="en-US")
           li= conference.name + ' | ' + conference.start_date + ' | ' + conference.specialty
       img(src="images/earth.jpg" alt="The Earth" title="The Earth")
 
+script
+  
+- let specialtyButton =  document.getElementById("specialtyButton");
+- let optionsValues = document.querySelectorAll("option");
+- specialtyButton.addEventListener("click", () => {
+  value ?
+})
 
-  //-     each conference in conferences
-  //- li= conference.name + ' / ' + conference.start_date.toISOString().slice(0,10)
+
+const elements = document.querySelectorAll('[name="myName"]');

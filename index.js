@@ -108,3 +108,40 @@ app.listen(3000, "localhost", () => {
   console.log("Listening to port 3000.");
 });
 
+// Sample Code
+// Render individual todo list and its todos
+app.get("/lists/:todoListId",
+  requiresAuthentication,
+  catchError(async (req, res) => {
+    let todoListId = req.params.todoListId;
+    let todoList = await res.locals.store.loadTodoList(+todoListId);
+    if (todoList === undefined) throw new Error("Not found.");
+
+    todoList.todos = await res.locals.store.sortedTodos(todoList);
+
+    res.render("list", {
+      todoList,
+      isDoneTodoList: res.locals.store.isDoneTodoList(todoList),
+      hasUndoneTodos: res.locals.store.hasUndoneTodos(todoList),
+    });
+  })
+);
+
+function getOption() {
+  selectElement = document.querySelector('#select1');
+  output = selectElement.value;
+  document.querySelector('.output').textContent = output;
+}
+
+// Get dropdown element
+const specialtyDropdown = document.getElementById('specialtyDropdown');
+
+// Add change event listener 
+select.addEventListener('change', (e) => {
+
+  // Get selected option value
+  const selectedSpecialty = e.target.value;
+
+  // selectedSpecialty contains just the specialty 
+  // e.g. "Cardiology"
+});
