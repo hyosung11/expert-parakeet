@@ -83,7 +83,7 @@ function getSpecialties(conferences) {
   }
 
   result.sort();
-  result.unshift("...")
+  result.unshift("");
   return result;
 }
 
